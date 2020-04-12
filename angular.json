@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "projects": {},
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "761cc353-99c3-4d1d-afa8-16826b8e3565"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  }
+}
