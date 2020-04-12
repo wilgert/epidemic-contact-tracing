@@ -1,6 +1,33 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "plus-code": {
+      "root": "libs/plus-code",
+      "sourceRoot": "libs/plus-code/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/plus-code/tsconfig.lib.json",
+              "libs/plus-code/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/plus-code/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/plus-code/jest.config.js",
+            "tsConfig": "libs/plus-code/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular",
     "analytics": "761cc353-99c3-4d1d-afa8-16826b8e3565"
