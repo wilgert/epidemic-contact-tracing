@@ -26,6 +26,58 @@
           }
         }
       }
+    },
+    "location": {
+      "root": "libs/location",
+      "sourceRoot": "libs/location/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/location/tsconfig.lib.json",
+              "libs/location/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/location/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/location/jest.config.js",
+            "tsConfig": "libs/location/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hash": {
+      "root": "libs/hash",
+      "sourceRoot": "libs/hash/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/hash/tsconfig.lib.json",
+              "libs/hash/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/hash/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/hash/jest.config.js",
+            "tsConfig": "libs/hash/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

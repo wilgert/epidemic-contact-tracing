@@ -16,7 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@epidemic-contact-tracing/plus-code": ["libs/plus-code/src/index.ts"]
+      "@epidemic-contact-tracing/plus-code": ["libs/plus-code/src/index.ts"],
+      "@epidemic-contact-tracing/location": ["libs/location/src/index.ts"],
+      "@epidemic-contact-tracing/hash": ["libs/hash/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

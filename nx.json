@@ -21,6 +21,12 @@
   "projects": {
     "plus-code": {
       "tags": []
+    },
+    "location": {
+      "tags": []
+    },
+    "hash": {
+      "tags": []
     }
   }
 }
