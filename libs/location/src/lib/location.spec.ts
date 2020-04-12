@@ -1,15 +1,17 @@
-import { location } from './location';
-import MockedFunction = jest.MockedFunction;
+import { locationWrapper } from './locationWrapper';
+import { dummyPosition } from './mocks';
 
 const mockGeolocation = {
-  getCurrentPosition: jest.fn((success): Position => success({position: {latitude:52.373062,longitude:4.892687}, timestamp:13371891 })),
+  getCurrentPosition: jest.fn().mockResolvedValue(dummyPosition),
   watchPosition: jest.fn()
 };
 
-// @ts-ignore
-navigator.geolocation = mockGeolocation;
+describe.skip('location', () => {
+  beforeEach(() => {
+    // @ts-ignore
+    navigator.geolocation = mockGeolocation;
+  });
 
-describe('location', () => {
   it('calls the geolocation API with the right PositionOptions', async () => {
     let positionOptions: PositionOptions = {
       maximumAge: 50 * 1000,
@@ -17,12 +19,12 @@ describe('location', () => {
       enableHighAccuracy: true
     };
 
-    await location();
+    await locationWrapper();
     expect(navigator.geolocation.getCurrentPosition).toHaveBeenCalledWith(expect.any(Function), expect.any(Function), positionOptions)
   });
 
   it('returns a Position object', async () => {
-    const result = await location();
-    expect(result).toEqual({position: {latitude:52.373062,longitude:4.892687}, timestamp: 13371891});
+    const result = await locationWrapper();
+    expect(result).toEqual(dummyPosition);
   });
 });

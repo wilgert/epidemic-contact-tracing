@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "esModuleInterop": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -18,7 +19,14 @@
     "paths": {
       "@epidemic-contact-tracing/plus-code": ["libs/plus-code/src/index.ts"],
       "@epidemic-contact-tracing/location": ["libs/location/src/index.ts"],
-      "@epidemic-contact-tracing/hash": ["libs/hash/src/index.ts"]
+      "@epidemic-contact-tracing/hash": ["libs/hash/src/index.ts"],
+      "@epidemic-contact-tracing/feature/calculate-hash": [
+        "libs/feature/calculate-hash/src/index.ts"
+      ],
+      "@epidemic-contact-tracing/current-hash": [
+        "libs/current-hash/src/index.ts"
+      ],
+      "@epidemic-contact-tracing/store-hash": ["libs/store-hash/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

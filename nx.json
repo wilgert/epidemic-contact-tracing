@@ -27,6 +27,22 @@
     },
     "hash": {
       "tags": []
+    },
+    "hash-from-position": {
+      "tags": []
+    },
+    "demo-app": {
+      "tags": []
+    },
+    "demo-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["demo-app"]
+    },
+    "current-hash": {
+      "tags": []
+    },
+    "store-hash": {
+      "tags": []
     }
   }
 }

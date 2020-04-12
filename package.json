@@ -67,5 +67,10 @@
     "cypress": "^4.1.0",
     "@nrwl/cypress": "9.2.2",
     "@nrwl/node": "9.2.2"
+  },
+  "wallaby": {
+    "files": [
+      "!src/**/*-e2e/*"
+    ]
   }
 }

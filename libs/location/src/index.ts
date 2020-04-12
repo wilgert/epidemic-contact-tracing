@@ -1,1 +1,2 @@
-export * from './lib/location';
+export * from './lib/locationWrapper';
+export * from './lib/mocks';
