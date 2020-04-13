@@ -6,7 +6,7 @@
 
 <table>
   <tr>
-    <th>{{(matchingHashes$ | async).length}} matches</th>
+    <th>{{(matchingHashes$ | async)?.length}} matches</th>
   </tr>
   <tr *ngFor="let matchingHash of matchingHashes$ | async">
     <td>{{ matchingHash }}</td>
