@@ -2,10 +2,10 @@ import { async, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CurrentHashService } from '@epidemic-contact-tracing/current-hash';
+import { StoreHashService } from '@epidemic-contact-tracing/store-hash';
 import { of } from 'rxjs';
 
 import { AppComponent } from './app.component';
-import { StoreHashService } from '@epidemic-contact-tracing/store-hash';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
-import { StoreHashModule } from '../../../../libs/angular/store-hash/src';
+import { StoreHashModule } from '@epidemic-contact-tracing/store-hash';
 
 import { AppComponent } from './app.component';
 
