@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { hashFromPlusCodeAndTimestamp } from '@epidemic-contact-tracing/hash-from-position';
 import { locationWrapper } from '@epidemic-contact-tracing/location';
+import { getPlusCode } from '@epidemic-contact-tracing/plus-code';
 import { from, NEVER, Observable, timer } from 'rxjs';
-import { catchError, distinctUntilChanged, map, share, switchMap } from 'rxjs/operators';
-import { plusCode } from '@epidemic-contact-tracing/plus-code';
+import {
+  catchError,
+  distinctUntilChanged,
+  map,
+  share,
+  switchMap
+} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +20,10 @@ export class CurrentHashService {
   private readonly timestampGranularityInSeconds = 100;
 
   constructor() {
-    this.hashInput$ = timer(0, (this.timestampGranularityInSeconds / 2 * 1000)).pipe(
+    this.hashInput$ = timer(
+      0,
+      (this.timestampGranularityInSeconds / 2) * 1000
+    ).pipe(
       switchMap(() =>
         from(
           locationWrapper({
@@ -24,7 +33,7 @@ export class CurrentHashService {
         )
       ),
       map(({ coords: { latitude, longitude }, timestamp }: Position) => ({
-        plusCode: plusCode(latitude, longitude),
+        plusCode: getPlusCode(latitude, longitude),
         timestamp
       })),
       catchError(err => {

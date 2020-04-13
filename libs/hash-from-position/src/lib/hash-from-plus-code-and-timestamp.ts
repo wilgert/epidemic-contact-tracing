@@ -1,5 +1,4 @@
 import { hash } from '@epidemic-contact-tracing/hash';
-import { plusCode } from '@epidemic-contact-tracing/plus-code';
 
 export function hashFromPlusCodeAndTimestamp({
   plusCode,

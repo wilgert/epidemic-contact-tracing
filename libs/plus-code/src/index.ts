@@ -1,1 +1,1 @@
-export * from './lib/plus-code';
+export * from './lib/get-plus-code';
