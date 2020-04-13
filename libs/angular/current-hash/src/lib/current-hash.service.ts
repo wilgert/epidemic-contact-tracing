@@ -14,7 +14,7 @@ export class CurrentHashService {
   public hash$: Observable<string>;
 
   constructor() {
-    this.hash$ = timer(0, (timestampGranularityInSeconds / 2) * 1000).pipe(
+    this.hash$ = timer(0, timestampGranularityInSeconds * 1000).pipe(
       switchMap(() =>
         from(
           locationWrapper({
