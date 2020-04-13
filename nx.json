@@ -43,6 +43,9 @@
     },
     "store-hash": {
       "tags": []
+    },
+    "compress": {
+      "tags": []
     }
   }
 }

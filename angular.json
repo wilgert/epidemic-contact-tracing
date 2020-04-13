@@ -230,27 +230,27 @@
     },
     "current-hash": {
       "projectType": "library",
-      "root": "libs/current-hash",
-      "sourceRoot": "libs/current-hash/src",
+      "root": "libs/angular/current-hash",
+      "sourceRoot": "libs/angular/current-hash/src",
       "prefix": "epidemic-contact-tracing",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/current-hash/tsconfig.lib.json",
-              "libs/current-hash/tsconfig.spec.json"
+              "libs/angular/current-hash/tsconfig.lib.json",
+              "libs/angular/current-hash/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/current-hash/**"]
+            "exclude": ["**/node_modules/**", "!libs/angular/current-hash/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/current-hash/jest.config.js",
-            "tsConfig": "libs/current-hash/tsconfig.spec.json",
+            "jestConfig": "libs/angular/current-hash/jest.config.js",
+            "tsConfig": "libs/angular/current-hash/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/current-hash/src/test-setup.ts"
+            "setupFile": "libs/angular/current-hash/src/test-setup.ts"
           }
         }
       },
@@ -261,8 +261,40 @@
       }
     },
     "store-hash": {
-      "root": "libs/store-hash",
-      "sourceRoot": "libs/store-hash/src",
+      "projectType": "library",
+      "root": "libs/angular/store-hash",
+      "sourceRoot": "libs/angular/store-hash/src",
+      "prefix": "epidemic-contact-tracing",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular/store-hash/tsconfig.lib.json",
+              "libs/angular/store-hash/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular/store-hash/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular/store-hash/jest.config.js",
+            "tsConfig": "libs/angular/store-hash/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/angular/store-hash/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "compress": {
+      "root": "libs/compress",
+      "sourceRoot": "libs/compress/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -270,17 +302,17 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/store-hash/tsconfig.lib.json",
-              "libs/store-hash/tsconfig.spec.json"
+              "libs/compress/tsconfig.lib.json",
+              "libs/compress/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/store-hash/**"]
+            "exclude": ["**/node_modules/**", "!libs/compress/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/store-hash/jest.config.js",
-            "tsConfig": "libs/store-hash/tsconfig.spec.json",
+            "jestConfig": "libs/compress/jest.config.js",
+            "tsConfig": "libs/compress/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

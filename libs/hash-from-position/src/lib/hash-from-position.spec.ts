@@ -1,11 +1,11 @@
 import { hashFromPosition } from './hash-from-position';
 import {
   plusCode
-} from '../../../plus-code/src';
-import { dummyCoords, dummyPosition } from '../../../location/src';
-import { hash } from '../../../hash/src';
+} from '@epidemic-contact-tracing/plus-code';
+import { dummyCoords, dummyPosition } from '@epidemic-contact-tracing/location';
+import { hash } from '@epidemic-contact-tracing/hash';
 
-describe('featureCalculateHash', () => {
+describe('hashFromPosition', () => {
 
   describe('with mocks', () => {
     let originalPlusCode;
@@ -38,24 +38,24 @@ describe('featureCalculateHash', () => {
       const dummyPlusCode = 'dummyPlusCode';
       (plusCode as jest.Mock).mockReturnValue(dummyPlusCode);
       hashFromPosition({...dummyPosition, timestamp: 1586705953});
-      expect(hash).toHaveBeenCalledWith(`${dummyPlusCode}${1586705900}`);
+      expect(hash).toHaveBeenCalledWith(`${dummyPlusCode}${1586700}`);
     });
   });
 
   describe('without mocks', () => {
     it('returns the right hash', () => {
-      expect(hashFromPosition(dummyPosition)).toEqual('f786a646888a9a6140f6fb6be1df56197b407c9e60d80eeb47a28a479440f48c');
+      expect(hashFromPosition(dummyPosition)).toEqual('7a86d4b6de5e86125dca6472b4637867956d57849942c6341c55078978d1861a');
     });
 
     it('returns the same hash for timestamps within 100s', () => {
-      const positionWithTimestamp1 = { coords: dummyCoords, timestamp: 1586704900 } as Position;
-      const positionWithTimestamp2 = { coords: dummyCoords, timestamp: 1586704999 } as Position;
+      const positionWithTimestamp1 = { coords: dummyCoords, timestamp: 1586700000 } as Position;
+      const positionWithTimestamp2 = { coords: dummyCoords, timestamp: 1586799999 } as Position;
       expect(hashFromPosition(positionWithTimestamp1)).toEqual(hashFromPosition(positionWithTimestamp2));
     });
 
     it('returns a different hash for timestamps longer than 100s apart', () => {
-      const positionWithTimestamp1 = { coords: dummyCoords, timestamp: 1586704899 } as Position;
-      const positionWithTimestamp2 = { coords: dummyCoords, timestamp: 1586704999 } as Position;
+      const positionWithTimestamp1 = { coords: dummyCoords, timestamp: 1586700000 } as Position;
+      const positionWithTimestamp2 = { coords: dummyCoords, timestamp: 1586800000 } as Position;
       expect(hashFromPosition(positionWithTimestamp1)).not.toEqual(hashFromPosition(positionWithTimestamp2));
     });
   });

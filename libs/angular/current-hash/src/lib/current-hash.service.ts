@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { from, NEVER, Observable, of, timer } from 'rxjs';
-import { catchError, map, share, switchMap, tap } from 'rxjs/operators';
+import { from, NEVER, Observable, timer } from 'rxjs';
+import { catchError, map, share, switchMap } from 'rxjs/operators';
 import { locationWrapper } from '@epidemic-contact-tracing/location';
-import { hashFromPosition } from '../../../hash-from-position/src';
-import { storeHash } from '@epidemic-contact-tracing/store-hash';
+import { hashFromPosition, timestampGranularityInSeconds } from '@epidemic-contact-tracing/hash-from-position';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +11,9 @@ export class CurrentHashService {
   public hash$: Observable<string>;
 
   constructor() {
-    this.hash$ = timer(0, 5 * 1000).pipe(
-      switchMap(() => from(locationWrapper())),
+    this.hash$ = timer(0, (timestampGranularityInSeconds / 2) * 1000).pipe(
+      switchMap(() => from(locationWrapper({timestampGranularityInSeconds, timeoutInSeconds: 30}))),
       map((position: Position) => hashFromPosition(position)),
-      tap(hash => storeHash(hash)),
       catchError((err) => {
         console.table(err);
         return NEVER;

@@ -1,1 +1,15 @@
 <h1>Hash: {{ hash$ | async }}</h1>
+<h2>Total hashes: {{ totalHashes$ | async }}</h2>
+
+<textarea #hashInput></textarea>
+<button (click)="checkHashes(hashInput.value.split('\n'))">Check Hash</button>
+
+<table>
+  <tr>
+    <th>{{(matchingHashes$ | async).length}} matches</th>
+  </tr>
+  <tr *ngFor="let matchingHash of matchingHashes$ | async">
+    <td>{{ matchingHash }}</td>
+  </tr>
+</table>
+

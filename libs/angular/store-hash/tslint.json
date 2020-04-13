@@ -1,0 +1,20 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "epidemicContactTracing",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "epidemic-contact-tracing",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

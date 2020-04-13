@@ -1,9 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { CurrentHashService } from '../../../../libs/current-hash/src/lib/current-hash.service';
+import { CurrentHashService } from '@epidemic-contact-tracing/current-hash';
 import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {

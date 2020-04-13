@@ -20,13 +20,16 @@
       "@epidemic-contact-tracing/plus-code": ["libs/plus-code/src/index.ts"],
       "@epidemic-contact-tracing/location": ["libs/location/src/index.ts"],
       "@epidemic-contact-tracing/hash": ["libs/hash/src/index.ts"],
-      "@epidemic-contact-tracing/feature/calculate-hash": [
-        "libs/feature/calculate-hash/src/index.ts"
+      "@epidemic-contact-tracing/hash-from-position": [
+        "libs/hash-from-position/src/index.ts"
       ],
       "@epidemic-contact-tracing/current-hash": [
-        "libs/current-hash/src/index.ts"
+        "libs/angular/current-hash/src/index.ts"
       ],
-      "@epidemic-contact-tracing/store-hash": ["libs/store-hash/src/index.ts"]
+      "@epidemic-contact-tracing/store-hash": [
+        "libs/angular/store-hash/src/index.ts"
+      ],
+      "@epidemic-contact-tracing/compress": ["libs/compress/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
