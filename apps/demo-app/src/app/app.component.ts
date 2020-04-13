@@ -18,12 +18,6 @@ export class AppComponent {
   public matchingHashes$ = this.checkHashesSubject.asObservable().pipe(
     tap(() => performance.mark('checkHashesStart')),
     switchMap(hashes => this.storeHashService.checkHashes(hashes)),
-    tap(() => {
-      performance.measure('Time taken checking hashes', 'checkHashesStart');
-      console.table(performance.getEntriesByName('Time taken checking hashes'));
-      performance.clearMarks();
-      performance.clearMeasures();
-    }),
     startWith([]),
     share()
   );
