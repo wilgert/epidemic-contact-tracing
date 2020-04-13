@@ -48,7 +48,7 @@ describe('hashFromPosition', () => {
   describe('without mocks', () => {
     it('returns the right hash', () => {
       expect(hashFromPosition(dummyPosition, timestampGranularityInSeconds)).toEqual(
-        'ddb9913cd7721305ffc09486b0e0fcdf2ae7bd200d5e17e5204c57937da586c4'
+        '7a86d4b6de5e86125dca6472b4637867956d57849942c6341c55078978d1861a'
       );
     });
 
