@@ -1,12 +1,10 @@
 import { hash } from '@epidemic-contact-tracing/hash';
 import { plusCode } from '@epidemic-contact-tracing/plus-code';
 
-export const timestampGranularityInSeconds = 100;
-
 export function hashFromPosition({
   coords: { latitude, longitude },
   timestamp
-}: Position): string {
+}: Position, timestampGranularityInSeconds): string {
   const plusCodeResult: string = plusCode(latitude, longitude);
   const timestampInSeconds = timestamp / 1000;
   const roundedTimestamp =
