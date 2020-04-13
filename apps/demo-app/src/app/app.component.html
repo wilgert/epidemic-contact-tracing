@@ -1,5 +1,9 @@
 <h1>{{ hash$ | async }}</h1>
 <h2>Total hashes: {{ totalHashes$ | async }}</h2>
+<table *ngIf="(hashInput$ | async) as hashInput">
+  <tr><th>Pluscode</th><td>{{hashInput.plusCode}}</td></tr>
+  <tr><th>timestamp</th><td>{{hashInput.timestamp}}</td></tr>
+</table>
 
 <textarea #hashInput></textarea>
 <button (click)="checkHashes(hashInput.value.split('\n'))">Check Hash</button>
@@ -12,4 +16,3 @@
     <td>{{ matchingHash }}</td>
   </tr>
 </table>
-

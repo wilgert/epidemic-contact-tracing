@@ -22,7 +22,6 @@ export class StoreHashService implements OnDestroy {
     this.subscription.add(
       currentHashService.hash$
         .pipe(
-          distinctUntilChanged((x, y) => x === y),
           concatMap(hash =>
             from(this.indexedDB.add(OWN_HASHES_STORE_NAME, { hash }))
           ),

@@ -1,1 +1,1 @@
-export * from './lib/hash-from-position';
+export * from './lib/hash-from-plus-code-and-timestamp';
