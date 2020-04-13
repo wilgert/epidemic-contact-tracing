@@ -12,7 +12,7 @@ import { share, startWith, switchMap, tap } from 'rxjs/operators';
 export class AppComponent {
   public timing: string;
   public hash$: Observable<string>;
-  public hashInput$: Observable<{ plusCode: string, timestamp: number }>;
+  public hashInput$: Observable<{ plusCode: string; timestamp: number }>;
   public totalHashes$: Observable<number>;
   private checkHashesSubject = new Subject<string[]>();
   public matchingHashes$ = this.checkHashesSubject.asObservable().pipe(

@@ -1,8 +1,14 @@
 <h1>{{ hash$ | async }}</h1>
 <h2>Total hashes: {{ totalHashes$ | async }}</h2>
-<table *ngIf="(hashInput$ | async) as hashInput">
-  <tr><th>Pluscode</th><td>{{hashInput.plusCode}}</td></tr>
-  <tr><th>timestamp</th><td>{{hashInput.timestamp}}</td></tr>
+<table *ngIf="hashInput$ | async as hashInput">
+  <tr>
+    <th>Pluscode</th>
+    <td>{{ hashInput.plusCode }}</td>
+  </tr>
+  <tr>
+    <th>timestamp</th>
+    <td>{{ hashInput.timestamp }}</td>
+  </tr>
 </table>
 
 <textarea #hashInput></textarea>
@@ -10,7 +16,7 @@
 
 <table>
   <tr>
-    <th>{{(matchingHashes$ | async)?.length}} matches</th>
+    <th>{{ (matchingHashes$ | async)?.length }} matches</th>
   </tr>
   <tr *ngFor="let matchingHash of matchingHashes$ | async">
     <td>{{ matchingHash }}</td>
