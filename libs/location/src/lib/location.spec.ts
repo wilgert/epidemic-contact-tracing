@@ -23,11 +23,18 @@ describe.skip('location', () => {
       enableHighAccuracy: true
     };
     await locationWrapper({ timestampGranularityInSeconds, timeoutInSeconds });
-    expect(navigator.geolocation.getCurrentPosition).toHaveBeenCalledWith(expect.any(Function), expect.any(Function), positionOptions)
+    expect(navigator.geolocation.getCurrentPosition).toHaveBeenCalledWith(
+      expect.any(Function),
+      expect.any(Function),
+      positionOptions
+    );
   });
 
   it('returns a Position object', async () => {
-    const result = await locationWrapper({ timestampGranularityInSeconds, timeoutInSeconds });
+    const result = await locationWrapper({
+      timestampGranularityInSeconds,
+      timeoutInSeconds
+    });
     expect(result).toEqual(dummyPosition);
   });
 });
