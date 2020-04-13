@@ -1,9 +1,10 @@
 import { async, TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CurrentHashService } from '@epidemic-contact-tracing/current-hash';
 import { of } from 'rxjs';
-import { By } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

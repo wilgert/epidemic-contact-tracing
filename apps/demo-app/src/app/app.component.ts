@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CurrentHashService } from '@epidemic-contact-tracing/current-hash';
-import { Observable, Subject } from 'rxjs';
 import { StoreHashService } from '@epidemic-contact-tracing/store-hash';
+import { Observable, Subject } from 'rxjs';
 import { share, startWith, switchMap, tap } from 'rxjs/operators';
 
 @Component({
@@ -10,17 +10,16 @@ import { share, startWith, switchMap, tap } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   public timing: string;
   public hash$: Observable<string>;
   public totalHashes$: Observable<number>;
-  private checkHashesSubject = new Subject<string[]>()
+  private checkHashesSubject = new Subject<string[]>();
   public matchingHashes$ = this.checkHashesSubject.asObservable().pipe(
     tap(() => performance.mark('checkHashesStart')),
     switchMap(hashes => this.storeHashService.checkHashes(hashes)),
-    tap(()=> {
-      performance.measure('Time taken checking hashes', 'checkHashesStart')
-      console.table(performance.getEntriesByName('Time taken checking hashes'))
+    tap(() => {
+      performance.measure('Time taken checking hashes', 'checkHashesStart');
+      console.table(performance.getEntriesByName('Time taken checking hashes'));
       performance.clearMarks();
       performance.clearMeasures();
     }),
@@ -28,7 +27,10 @@ export class AppComponent {
     share()
   );
 
-  constructor(private currentHash: CurrentHashService, private storeHashService: StoreHashService) {
+  constructor(
+    private currentHash: CurrentHashService,
+    private storeHashService: StoreHashService
+  ) {
     this.hash$ = currentHash.hash$;
     this.totalHashes$ = storeHashService.totalHashes$;
   }

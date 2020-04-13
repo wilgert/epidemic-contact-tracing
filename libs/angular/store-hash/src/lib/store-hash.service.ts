@@ -2,11 +2,8 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { CurrentHashService } from '@epidemic-contact-tracing/current-hash';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { forkJoin, from, Observable, ReplaySubject, Subscription } from 'rxjs';
-import {
-  concatMap,
-  distinctUntilChanged,
-  map,
-} from 'rxjs/operators';
+import { concatMap, distinctUntilChanged, map } from 'rxjs/operators';
+
 import { OWN_HASHES_STORE_NAME } from './constants';
 
 @Injectable({

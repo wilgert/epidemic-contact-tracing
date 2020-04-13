@@ -1,5 +1,6 @@
-import { plusCode } from './plus-code';
 import OpenLocationCode from 'open-location-code-typescript';
+
+import { plusCode } from './plus-code';
 
 describe('plusCode', () => {
   beforeEach(() => {
@@ -21,6 +22,6 @@ describe('plusCode', () => {
   it('should get a valid plus code for Dam, Amsterdam', () => {
     (OpenLocationCode.encode as jasmine.Spy).and.callThrough();
 
-    expect(plusCode(52.373062,4.892687)).toEqual('9F469VFV+63');
+    expect(plusCode(52.373062, 4.892687)).toEqual('9F469VFV+63');
   });
 });
