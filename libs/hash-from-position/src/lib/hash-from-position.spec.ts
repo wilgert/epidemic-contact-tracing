@@ -21,7 +21,11 @@ describe('hashFromPosition', () => {
 
     it(`calls the hash lib with plusCode and timestamp rounded down to ${timestampGranularityInSeconds}s`, () => {
       const dummyPlusCode = 'dummyPlusCode';
-      hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: 1586705953,  timestampGranularityInSeconds});
+      hashFromPlusCodeAndTimestamp({
+        plusCode: dummyPlusCode,
+        timestamp: 1586705953,
+        timestampGranularityInSeconds
+      });
       expect(hash).toHaveBeenCalledWith(`${dummyPlusCode}${1586700}`);
     });
   });
@@ -30,7 +34,13 @@ describe('hashFromPosition', () => {
     it('returns the right hash', () => {
       const dummyPlusCode = 'dummyPlusCode';
 
-      expect(hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: 1586705953, timestampGranularityInSeconds})).toEqual(
+      expect(
+        hashFromPlusCodeAndTimestamp({
+          plusCode: dummyPlusCode,
+          timestamp: 1586705953,
+          timestampGranularityInSeconds
+        })
+      ).toEqual(
         'a82cdea6616a535b9d201e4efa8c0ab2e28fbaa9cca8820112453d3dfeec6fce'
       );
     });
@@ -40,8 +50,18 @@ describe('hashFromPosition', () => {
 
       const timestamp1 = 1586700000;
       const timestamp2 = 1586700000 + timestampGranularityInSeconds * 1000 - 1;
-      expect(hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: timestamp1, timestampGranularityInSeconds})).toEqual(
-        hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: timestamp2, timestampGranularityInSeconds})
+      expect(
+        hashFromPlusCodeAndTimestamp({
+          plusCode: dummyPlusCode,
+          timestamp: timestamp1,
+          timestampGranularityInSeconds
+        })
+      ).toEqual(
+        hashFromPlusCodeAndTimestamp({
+          plusCode: dummyPlusCode,
+          timestamp: timestamp2,
+          timestampGranularityInSeconds
+        })
       );
     });
 
@@ -49,10 +69,20 @@ describe('hashFromPosition', () => {
       const dummyPlusCode = 'dummyPlusCode';
 
       const timestamp1 = 1586700000;
-      const timestamp2 = 1586700000 + timestampGranularityInSeconds * 1000
+      const timestamp2 = 1586700000 + timestampGranularityInSeconds * 1000;
 
-      expect(hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: timestamp1, timestampGranularityInSeconds})).not.toEqual(
-        hashFromPlusCodeAndTimestamp({plusCode: dummyPlusCode, timestamp: timestamp2, timestampGranularityInSeconds})
+      expect(
+        hashFromPlusCodeAndTimestamp({
+          plusCode: dummyPlusCode,
+          timestamp: timestamp1,
+          timestampGranularityInSeconds
+        })
+      ).not.toEqual(
+        hashFromPlusCodeAndTimestamp({
+          plusCode: dummyPlusCode,
+          timestamp: timestamp2,
+          timestampGranularityInSeconds
+        })
       );
     });
   });
